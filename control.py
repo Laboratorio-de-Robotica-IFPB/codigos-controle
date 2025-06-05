@@ -1,4 +1,3 @@
- 
 base = 270
 Ki = 1.7
 Kd = 3
@@ -20,7 +19,7 @@ turn_rate = 80
 ti = time.time()
 while(True):
     drive_base.drive(speed, 0)
- 
+
   #  print(d, c)
     k = (1.0 if d > c else -1.0)
     #k = (-1.0 if c > d else 1.0)
@@ -33,12 +32,27 @@ while(True):
     #else:
     #    s = 0 
 
+
+   #ainda vou ver se isso funciona:
+    '''r1, g1, b1=left_sensor.rgb()
+    r2, g2, b2=right_sensor.rgb()
+    if g1>=80 and g2>=80:
+        right_motor.run_time(base, 2000)
+        left_motor.run_time(base/10, 2000)
+    else if g1>=80:
+        right_motor.run_time(base, 1000)
+        left_motor.run_time(base/10, 1000)
+    else if g2>=80:
+        left_motor.run_time(base, 1000)
+        right_motor.run_time(base/10, 1000)
+    '''
        if color_left <= 20:
         while(color_left <= 20):
             right_motor.run(base)
             left_motor.run(base/10)
             rl, gl, bl = left_sensor.rgb()
             color_left = (rl + gl + bl)
+
 
  '''
  rl, gl, bl = left_sensor.rgb()
